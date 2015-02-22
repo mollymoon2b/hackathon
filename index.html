@@ -88,25 +88,115 @@ jQuery(document).ready(function($){ $("a[rel='colorBox5065']").colorbox({}); });
 		function start_rozette() {
 			$('.logo_ros').addClass('hide');
 			$('.button_post').removeClass('hide');
-			$('.button_bd').removeClass('hide');
+			$('.button_cookie').removeClass('hide');
 			$('.button_mon').removeClass('hide');
 			$('.button_bd').removeClass('hide');
+			var index = 20;
+			post_go();
+			mon_go();
+			bd_go();		
+			//cookie_go();
+		}
+		function post_go() {
+			var index = 20;
+			var dc = 8;
+			postFunc();
+			function postFunc() {				
+				   	if (index < 37) {
+				   		index++;				   		
+				   		$('.button_post').css({"width":index+"px", "height":index+"px"});
+				   		if(index % 2)
+				   		{
+				   			dc--;
+				   			$('.button_post').css({"top":dc+"px", "left":dc+"px"});
+				   		}
+				   		setTimeout(postFunc, 80);
+				   	} else {
+				   		$('.button_post').css({"width":"20px", "height":"20px"});
+				   		$('.button_post').css({"top":"8px", "left":"8px"});
+				   	}
+			}
+		}
+		function mon_go() {
+			var index = 20;
+			var top = 8;
+			var right = 258;
+			monFunc();
+			function monFunc() {				
+				if (index < 37) {
+					index++;				   		
+					$('.button_mon').css({"width":index+"px", "height":index+"px"});
+					if(index % 2)
+					{
+						top--;
+						right--;
+						$('.button_mon').css({"top":top+"px", "right":right+"px"});
+					}
+					setTimeout(monFunc, 80);
+				} else {
+					$('.button_mon').css({"width":"20px", "height":"20px"});
+					$('.button_mon').css({"top":"8px", "right":"258px"});
+				}
+			}
+		}
+		function bd_go() {
+			var index = 20;
+			var top = 325;
+			var left = 170;
+			bdFunc();
+			function bdFunc() {				
+				if (index < 37) {
+					index++;				   		
+					$('.button_bd').css({"width":index+"px", "height":index+"px"});
+					if(index % 2)
+					{
+						top--;
+						left--;
+						$('.button_bd').css({"top":top+"px", "left":left+"px"});
+					}
+					setTimeout(bdFunc, 80);
+				} else {
+					$('.button_bd').css({"width":"20px", "height":"20px"});
+					$('.button_bd').css({"top":"325px", "left":"170px"});
+				}
+			}
+		}
+		function cookie_go() {
+			var index = 20;
+			var top = 995;
+			var right = -60;
+			cookieFunc();
+			function cookieFunc() {				
+				if (index < 37) {
+					index++;				   		
+					$('.button_cookie').css({"width":index+"px", "height":index+"px"});
+					if(index % 2)
+					{
+						top--;
+						right--;
+						$('.button_cookie').css({"top":top+"px", "right":right+"px"});
+					}
+					setTimeout(cookieFunc, 80);
+				} else {
+					$('.button_cookie').css({"width":"20px", "height":"20px"});
+					$('.button_cookie').css({"top":"995px", "right":"-60px"});
+				}
+			}
 		}
 		function debutrozette() {
 			 $('.btn_begin').addClass('hide');
-			// $('body').addClass('arbo_image');
+			 $('.cookie_ros').addClass('hide');
 			var index = 1;
 		   	$('.logo_ros').css({"display":"block"});
 			timeFunc();		
 			function timeFunc() {
 				document.getElementById("logo_roz").src = "http://localhost:4242/img/logo"+index+".png";
-			   	// $('.logo_ros').css({"background-image":"url(http://localhost:4242/img/logo"+index+".jpg)"});
 			   	index++;
 			   	if (index < 19) {
 			   		setTimeout(timeFunc, 200);
 			   	}
 			   	if (index == 18) {
-
+			   		$('.cookie_ros').removeClass('hide');
 			   		start_rozette();
 			   	}
 			}
@@ -115,50 +205,58 @@ jQuery(document).ready(function($){ $("a[rel='colorBox5065']").colorbox({}); });
 		
 	<div class="logo_ros">
 		<div class="logo_good">
-			<img id="logo_roz" src="http://localhost:4242/img/logo1.jpg">
+			<img id="logo_roz" src="http://localhost:4242/img/logo1.png">
+		</div>
+	</div>
+	<div class="cookie_ros">
+		<div class="cookie">
+			<img id="cookie_roz" src="http://localhost:4242/img/cookie.jpg">
 		</div>
 	</div>
 	<div class="btn_begin" onclick="debutrozette()"></div>
 	<div class="body-wrapper">
 	<div id="sb-site">
 	<!-- header html 5 -->
+		<div onclick="mon_go()" id="button1" class="button_mon hide"></div>
 		<header >
-				<div class="logo"><a href="/index.php"><img src="/images/site/voyageurs_header.png" alt="logo voyageurs du code" border="0"/></a></div>
-				<div id="button1" class="button_post hide">
-				</div>
-				<div class="headercontent pull-right">
-					<div class="">
-						<div class="module mod-110  ">
-							<div class="module-content">
-								<div class="custom"  >
-									<p><img style="margin-top: 7px;" src="/images/site/init_header.png" alt="init header" /></p>
-									<h3><a href="http://www.bibliosansfrontieres.org/" target="_blank"><img style="margin-top: -10px; float: left;" src="/images/site/bsf_gris.png" alt="bsf gris" width="169" height="42" /></a></h3>
-									<h3>&nbsp; &nbsp;&nbsp; <a href="http://www.tralalere.com/" target="_blank"><img style="margin-top: -20px;" src="/images/site/tralalere_gris.png" alt="tralalere gris" width="72" height="53" /></a>&nbsp;&nbsp;</h3>
-									<h3>&nbsp; &nbsp; &nbsp;</h3>
-									<h3>&nbsp;&nbsp;&nbsp;</h3>
-									<h3>&nbsp;</h3>
-									<h3>&nbsp;</h3>
-									<p>&nbsp;</p>
-								</div>
-							</div>
-							<div class="module-bottom"></div>
-						</div>
-					<div class="module mod-111  ">
+			<div class="logo"><a href="/index.php"><img src="/images/site/voyageurs_header.png" alt="logo voyageurs du code" border="0"/></a></div>
+			<div onclick="post_go()" id="button1" class="button_post hide">
+			</div>
+			<div onclick="cookie_go()" id="button1" class="button_cookie hide">
+			</div>
+			<div class="headercontent pull-right">
+				<div class="">
+					<div class="module mod-110  ">
 						<div class="module-content">
 							<div class="custom"  >
-								<p>&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
-								<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;<a href="https://www.facebook.com/lesvoyageursducode" target="_blank"><img src="/images/site/facebook_carré.jpg" alt="facebook carré" width="32" height="32" /></a> <a href="https://twitter.com/VoyageursduCode" target="_blank"><img style="margin-left: -20px;" src="/images/site/tweet.png" alt="tweet" width="45" height="39" /></a></p>
+								<p><img style="margin-top: 7px;" src="/images/site/init_header.png" alt="init header" /></p>
+								<h3><a href="http://www.bibliosansfrontieres.org/" target="_blank"><img style="margin-top: -10px; float: left;" src="/images/site/bsf_gris.png" alt="bsf gris" width="169" height="42" /></a></h3>
+								<h3>&nbsp; &nbsp;&nbsp; <a href="http://www.tralalere.com/" target="_blank"><img style="margin-top: -20px;" src="/images/site/tralalere_gris.png" alt="tralalere gris" width="72" height="53" /></a>&nbsp;&nbsp;</h3>
 								<h3>&nbsp; &nbsp; &nbsp;</h3>
-								<h3>&nbsp;&nbsp;</h3>
+								<h3>&nbsp;&nbsp;&nbsp;</h3>
 								<h3>&nbsp;</h3>
 								<h3>&nbsp;</h3>
-								<p style="text-align: left;">&nbsp; &nbsp; &nbsp;</p>
-								<p style="text-align: left;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+								<p>&nbsp;</p>
 							</div>
-							<div class="module-bottom"></div>
 						</div>
+						<div class="module-bottom"></div>
 					</div>
-				</div>				
+				<div class="module mod-111  ">
+					<div class="module-content">
+						<div class="custom"  >
+							<p>&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+							<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;<a href="https://www.facebook.com/lesvoyageursducode" target="_blank"><img src="/images/site/facebook_carré.jpg" alt="facebook carré" width="32" height="32" /></a> <a href="https://twitter.com/VoyageursduCode" target="_blank"><img style="margin-left: -20px;" src="/images/site/tweet.png" alt="tweet" width="45" height="39" /></a></p>
+							<h3>&nbsp; &nbsp; &nbsp;</h3>
+							<h3>&nbsp;&nbsp;</h3>
+							<h3>&nbsp;</h3>
+							<h3>&nbsp;</h3>
+							<p style="text-align: left;">&nbsp; &nbsp; &nbsp;</p>
+							<p style="text-align: left;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+						</div>
+						<div class="module-bottom"></div>
+					</div>
+				</div>
+			</div>				
 		</header>
 			<!-- menu html 5 -->
 		<nav class="menu"><div class=""><div class="module mod-98  "><div class="module-content">
@@ -249,8 +347,13 @@ jQuery(document).ready(function($){ $("a[rel='colorBox5065']").colorbox({}); });
 	
 	
 		<!-- Mainbody -->
-		<div id="mainbody" class="clearfix ">	
-			<div id="top" class="clearfix "><div class=""><div class="module mod-118  "><div class="module-content">
+		<div id="mainbody" class="clearfix ">
+			
+			<div id="top" class="clearfix ">
+				<div onclick="bd_go()" id="button1" class="button_bd hide"></div>
+				<div class="">
+					<div class="module mod-118  ">
+						<div class="module-content">
 
 <div class="custom"  >
 	<p><img style="margin-right: 30px; float: left;" src="/images/site/ordi.png" alt="ordi" width="125" height="142" class="get_info" /></p>

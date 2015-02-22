@@ -56,19 +56,48 @@ h1{
 	display: block;
 }
 
+.cookie_ros {
+	position: absolute;
+	top: 27%;
+	right: 4%;
+	z-index: 10;
+}
+
+#cookie_roz {
+	
+	width: 80px;
+	height: auto;
+	display: block;
+}
+
 #button1 {
-	position: relative;
+	position: absolute;
 	z-index: 20;
 	border-radius: 100%;
-	background-color: red;
+	background-color: #726DFB;
 	width: 20px;
 	height: 20px;
 }
 
 .button_post {
-	padding-top:8px;
+	top:8px;
+	left:8px;
 }
 
+.button_bd {
+	top:325px;
+	left:170px;
+}
+
+.button_mon {
+	top:8px;
+	right:258px;
+}
+
+.button_cookie {
+	top:995px;
+	right:-60px;
+}
 
 .opacity_roz {
 	background-color: rgba(255,255,255,0.7);
