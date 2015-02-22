@@ -87,40 +87,50 @@ jQuery(document).ready(function($){ $("a[rel='colorBox5065']").colorbox({}); });
 
 		function start_rozette() {
 			$('.logo_ros').addClass('hide');
+			$('.logo_good').addClass('hide');
 			$('.button_post').removeClass('hide');
 			$('.button_cookie').removeClass('hide');
 			$('.button_mon').removeClass('hide');
 			$('.button_bd').removeClass('hide');
-			var index = 20;
-			post_go();
-			mon_go();
-			bd_go();		
-			//cookie_go();
+			var index = 20;			
+			boucleFunc();		
+			function boucleFunc() {
+			   	post_go();
+				mon_go();
+				bd_go();		
+				cookie_go();
+			   	setTimeout(boucleFunc, 3000);
+			}
 		}
 		function post_go() {
 			var index = 20;
 			var dc = 8;
+			var op = 1;
 			postFunc();
 			function postFunc() {				
-				   	if (index < 37) {
-				   		index++;				   		
-				   		$('.button_post').css({"width":index+"px", "height":index+"px"});
-				   		if(index % 2)
-				   		{
-				   			dc--;
-				   			$('.button_post').css({"top":dc+"px", "left":dc+"px"});
-				   		}
-				   		setTimeout(postFunc, 80);
-				   	} else {
-				   		$('.button_post').css({"width":"20px", "height":"20px"});
-				   		$('.button_post').css({"top":"8px", "left":"8px"});
-				   	}
+			   	if (index < 37) {
+			   		index++;				   		
+			   		$('.button_post').css({"width":index+"px", "height":index+"px"});
+			   		if(index % 2)
+			   		{
+			   			dc--;
+			   			op = op - 0.1;
+			   			$('.button_post').css({"top":dc+"px", "left":dc+"px"});
+			   			$('.button_post').css({"opacity":op});
+			   		}
+			   		setTimeout(postFunc, 120);
+			   	} else {
+			   		$('.button_post').css({"width":"20px", "height":"20px"});
+			   		$('.button_post').css({"top":"8px", "left":"8px"});
+			   		$('.button_post').css({"opacity":"1"});
+			   	}
 			}
 		}
 		function mon_go() {
 			var index = 20;
 			var top = 8;
 			var right = 258;
+			var op = 1;
 			monFunc();
 			function monFunc() {				
 				if (index < 37) {
@@ -130,12 +140,15 @@ jQuery(document).ready(function($){ $("a[rel='colorBox5065']").colorbox({}); });
 					{
 						top--;
 						right--;
+						op = op - 0.1;
 						$('.button_mon').css({"top":top+"px", "right":right+"px"});
+						$('.button_mon').css({"opacity":op});
 					}
-					setTimeout(monFunc, 80);
+					setTimeout(monFunc, 120);
 				} else {
 					$('.button_mon').css({"width":"20px", "height":"20px"});
 					$('.button_mon').css({"top":"8px", "right":"258px"});
+					$('.button_mon').css({"opacity":"1"});
 				}
 			}
 		}
@@ -143,6 +156,7 @@ jQuery(document).ready(function($){ $("a[rel='colorBox5065']").colorbox({}); });
 			var index = 20;
 			var top = 325;
 			var left = 170;
+			var op = 1;
 			bdFunc();
 			function bdFunc() {				
 				if (index < 37) {
@@ -152,12 +166,15 @@ jQuery(document).ready(function($){ $("a[rel='colorBox5065']").colorbox({}); });
 					{
 						top--;
 						left--;
+						op = op - 0.1;
 						$('.button_bd').css({"top":top+"px", "left":left+"px"});
+						$('.button_bd').css({"opacity":op});
 					}
-					setTimeout(bdFunc, 80);
+					setTimeout(bdFunc, 120);
 				} else {
 					$('.button_bd').css({"width":"20px", "height":"20px"});
 					$('.button_bd').css({"top":"325px", "left":"170px"});
+					$('.button_bd').css({"opacity":"1"});
 				}
 			}
 		}
@@ -165,6 +182,7 @@ jQuery(document).ready(function($){ $("a[rel='colorBox5065']").colorbox({}); });
 			var index = 20;
 			var top = 995;
 			var right = -60;
+			var op = 1;
 			cookieFunc();
 			function cookieFunc() {				
 				if (index < 37) {
@@ -174,12 +192,15 @@ jQuery(document).ready(function($){ $("a[rel='colorBox5065']").colorbox({}); });
 					{
 						top--;
 						right--;
+						op = op - 0.1;
 						$('.button_cookie').css({"top":top+"px", "right":right+"px"});
+						$('.button_cookie').css({"opacity":op});
 					}
-					setTimeout(cookieFunc, 80);
+					setTimeout(cookieFunc, 120);
 				} else {
 					$('.button_cookie').css({"width":"20px", "height":"20px"});
 					$('.button_cookie').css({"top":"995px", "right":"-60px"});
+					$('.button_cookie').css({"opacity":"1"});
 				}
 			}
 		}
@@ -201,6 +222,123 @@ jQuery(document).ready(function($){ $("a[rel='colorBox5065']").colorbox({}); });
 			   	}
 			}
 		}
+		function debut_bd() {
+			$('.cookie_ros').addClass('hide');
+			$('.logo_ros').removeClass('hide');
+			$('.bd_ros').removeClass('hide');
+			$('.button_post').addClass('hide');
+			$('.button_cookie').addClass('hide');
+			$('.button_mon').addClass('hide');
+			$('.button_bd').addClass('hide');
+			var index = 1;
+		   	$('.bd_ros').css({"display":"block"});
+			debutbdFunc();		
+			function debutbdFunc() {
+				document.getElementById("bd_roz").src = "http://localhost:4242/img/image-bd/bd-"+index+".png";
+			   	index++;
+			   	if (index < 21) {
+			   		setTimeout(debutbdFunc, 200);
+			   	}
+			}
+		}
+		function bd_encar_see() {
+			$('.bd_encar').removeClass('hide');
+		}
+		function debut_mon() {
+			$('.cookie_ros').addClass('hide');
+			$('.logo_ros').removeClass('hide');
+			$('.mon_ros').removeClass('hide');
+			$('.button_post').addClass('hide');
+			$('.button_cookie').addClass('hide');
+			$('.button_mon').addClass('hide');
+			$('.button_bd').addClass('hide');
+			var index = 1;
+		   	$('.mon_ros').css({"display":"block"});
+			debutmonFunc();		
+			function debutmonFunc() {
+				document.getElementById("mon_roz").src = "http://localhost:4242/img/image-monsieur/mr-"+index+".png";
+			   	index++;
+			   	if (index < 10) {
+			   		setTimeout(debutmonFunc, 200);
+			   	} else {
+			   		$('.mon_encar').removeClass('hide');
+			   	}
+			}
+		}
+		function fin_mon() {
+			$('.logo_ros').addClass('hide');
+			$('.cookie_ros').removeClass('hide');
+			$('.mon_encar').addClass('hide');
+			$('#mon_roz').addClass('hide');
+			$('.button_post').removeClass('hide');
+			$('.button_cookie').removeClass('hide');
+			$('.button_mon').removeClass('hide');
+			$('.button_bd').removeClass('hide');
+		}
+		function debut_post() {
+			$('.cookie_ros').addClass('hide');
+			$('.logo_ros').removeClass('hide');
+			$('.post_ros').removeClass('hide');
+			$('.button_post').addClass('hide');
+			$('.button_cookie').addClass('hide');
+			$('.button_mon').addClass('hide');
+			$('.button_bd').addClass('hide');
+			var index = 18;
+		   	$('.post_ros').css({"display":"block"});
+			debutpostFunc();		
+			function debutpostFunc() {
+				document.getElementById("post_roz").src = "http://localhost:4242/img/image-postale/logo-"+index+".png";
+			   	index++;
+			   	if (index < 42) {
+			   		setTimeout(debutpostFunc, 200);
+			   	}
+			}
+		}
+		function post_encar_see() {
+			$('.post_encar').removeClass('hide');
+		}
+		function fin_post() {
+			$('.logo_ros').addClass('hide');
+			$('.cookie_ros').removeClass('hide');
+			$('.post_encar').addClass('hide');
+			$('#post_roz').addClass('hide');
+			$('.button_post').removeClass('hide');
+			$('.button_cookie').removeClass('hide');
+			$('.button_mon').removeClass('hide');
+			$('.button_bd').removeClass('hide');
+		}
+		function debut_post() {
+			$('.cookie_ros').addClass('hide');
+			$('.logo_ros').removeClass('hide');
+			$('.post_ros').removeClass('hide');
+			$('.button_post').addClass('hide');
+			$('.button_cookie').addClass('hide');
+			$('.button_mon').addClass('hide');
+			$('.button_bd').addClass('hide');
+			var index = 18;
+		   	$('.post_ros').css({"display":"block"});
+			debutpostFunc();		
+			function debutpostFunc() {
+				document.getElementById("post_roz").src = "http://localhost:4242/img/image-postale/logo-"+index+".png";
+			   	index++;
+			   	if (index < 42) {
+			   		setTimeout(debutpostFunc, 200);
+			   	}
+			}
+		}
+		function post_encar_see() {
+			$('.post_encar').removeClass('hide');
+		}
+		function fin_post() {
+			$('.logo_ros').addClass('hide');
+			$('.cookie_ros').removeClass('hide');
+			$('.post_encar').addClass('hide');
+			$('#post_roz').addClass('hide');
+			$('.button_post').removeClass('hide');
+			$('.button_cookie').removeClass('hide');
+			$('.button_mon').removeClass('hide');
+			$('.button_bd').removeClass('hide');
+		}
 	</script>
 		
 	<div class="logo_ros">
@@ -208,19 +346,49 @@ jQuery(document).ready(function($){ $("a[rel='colorBox5065']").colorbox({}); });
 			<img id="logo_roz" src="http://localhost:4242/img/logo1.png">
 		</div>
 	</div>
-	<div class="cookie_ros">
+	<div class="bd_ros hide">
+		<div class="bd_good">
+			<img onclick="bd_encar_see()" id="bd_roz" src="http://localhost:4242/img/image-bd/bd-1.png">
+		</div>
+		<div class="bd_encar hide">
+			<a href="http://localhost:4242/cours.html"><img id="bd_encar" src="http://localhost:4242/img/encart2.jpg"/><a>
+		</div>
+	</div>
+	<div class="post_ros hide">
+		<div class="post_good">
+			<img onclick="post_encar_see()" id="post_roz" src="http://localhost:4242/img/image-postale/logo-18.png">
+		</div>
+		<div class="post_encar hide">
+			<img id="post_encar" src="http://localhost:4242/img/encart1.png" onclick="fin_post()"/>
+		</div>
+	</div>
+	<div class="mon_ros hide">
+		<div class="mon_good">
+			<img id="mon_roz" src="http://localhost:4242/img/image-monsieur/mr-1.png" onclick="fin_mon()">
+		</div>
+	</div>
+	<div class="cookie_ros hide">
+		<div class="cookie_good">
+			<img id="cookie_roz" src="http://localhost:4242/img/image-cookie/cookie-1.png">
+		</div>
+		<div class="cookie_encar hide">
+			<img id="cookie_encar" src="http://localhost:4242/img/image-cookie/cookie-15.png"/>
+		</div>
+	</div>
+	<div class="cookie_ros hide">
 		<div class="cookie">
 			<img id="cookie_roz" src="http://localhost:4242/img/cookie.jpg">
+			<p>Cookie</p>
 		</div>
 	</div>
 	<div class="btn_begin" onclick="debutrozette()"></div>
 	<div class="body-wrapper">
 	<div id="sb-site">
 	<!-- header html 5 -->
-		<div onclick="mon_go()" id="button1" class="button_mon hide"></div>
+		<div onclick="debut_mon()" id="button1" class="button_mon hide"></div>
 		<header >
 			<div class="logo"><a href="/index.php"><img src="/images/site/voyageurs_header.png" alt="logo voyageurs du code" border="0"/></a></div>
-			<div onclick="post_go()" id="button1" class="button_post hide">
+			<div onclick="debut_post()" id="button1" class="button_post hide">
 			</div>
 			<div onclick="cookie_go()" id="button1" class="button_cookie hide">
 			</div>
@@ -350,7 +518,7 @@ jQuery(document).ready(function($){ $("a[rel='colorBox5065']").colorbox({}); });
 		<div id="mainbody" class="clearfix ">
 			
 			<div id="top" class="clearfix ">
-				<div onclick="bd_go()" id="button1" class="button_bd hide"></div>
+				<div onclick="debut_bd()" id="button1" class="button_bd hide"></div>
 				<div class="">
 					<div class="module mod-118  ">
 						<div class="module-content">
