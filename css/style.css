@@ -38,6 +38,17 @@ h1{
 	height: 60px;
 }
 
+.btn_end {
+	position:absolute;
+	background-image:url("../img/btn_end.png");
+	background-size:60px auto;
+	background-repeat:no-repeat;
+	right:0;
+	z-index: 100;
+	width: 60px;
+	height: 60px;
+}
+
 .logo_ros {
 	display:none;
 	position: absolute;
@@ -123,6 +134,21 @@ h1{
 	display: block;
 }
 
+.cookie_2 {
+	display:none;
+	position: absolute;
+	top: 27%;
+	right: 0;
+	transition: 0.1 background linear; 
+	z-index: 100;
+}
+
+#cookie_1 {
+	width: 70%;
+	height: 105;
+	display: block;
+}
+
 .cookie_ros {
 	position: absolute;
 	top: 27%;
@@ -133,6 +159,20 @@ h1{
 #cookie_roz {
 	
 	width: 80px;
+	height: auto;
+	display: block;
+}
+
+.rech_ros {
+	position: absolute;
+	top: 1%;
+	right: -20%;
+	z-index: 10;
+}
+
+#rech_roz {
+	
+	width: 40%;
 	height: auto;
 	display: block;
 }
@@ -157,8 +197,8 @@ h1{
 }
 
 .button_mon {
-	top:8px;
-	right:258px;
+	top:22px;
+	right:45px;
 }
 
 .button_cookie {

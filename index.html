@@ -88,6 +88,7 @@ jQuery(document).ready(function($){ $("a[rel='colorBox5065']").colorbox({}); });
 		function start_rozette() {
 			$('.logo_ros').addClass('hide');
 			$('.logo_good').addClass('hide');
+			$('.rech_ross').removeClass('hide');
 			$('.button_post').removeClass('hide');
 			$('.button_cookie').removeClass('hide');
 			$('.button_mon').removeClass('hide');
@@ -128,8 +129,8 @@ jQuery(document).ready(function($){ $("a[rel='colorBox5065']").colorbox({}); });
 		}
 		function mon_go() {
 			var index = 20;
-			var top = 8;
-			var right = 258;
+			var top = 22;
+			var right = 45;
 			var op = 1;
 			monFunc();
 			function monFunc() {				
@@ -147,7 +148,7 @@ jQuery(document).ready(function($){ $("a[rel='colorBox5065']").colorbox({}); });
 					setTimeout(monFunc, 120);
 				} else {
 					$('.button_mon').css({"width":"20px", "height":"20px"});
-					$('.button_mon').css({"top":"8px", "right":"258px"});
+					$('.button_mon').css({"top":"22px", "right":"45px"});
 					$('.button_mon').css({"opacity":"1"});
 				}
 			}
@@ -207,6 +208,7 @@ jQuery(document).ready(function($){ $("a[rel='colorBox5065']").colorbox({}); });
 		function debutrozette() {
 			 $('.btn_begin').addClass('hide');
 			 $('.cookie_ros').addClass('hide');
+			 $('.rech_ros').addClass('hide');
 			var index = 1;
 		   	$('.logo_ros').css({"display":"block"});
 			timeFunc();		
@@ -214,10 +216,12 @@ jQuery(document).ready(function($){ $("a[rel='colorBox5065']").colorbox({}); });
 				document.getElementById("logo_roz").src = "http://localhost:4242/img/logo"+index+".png";
 			   	index++;
 			   	if (index < 19) {
-			   		setTimeout(timeFunc, 200);
+			   		setTimeout(timeFunc, 120);
 			   	}
 			   	if (index == 18) {
 			   		$('.cookie_ros').removeClass('hide');
+			   		$('.rech_ros').removeClass('hide');
+			   		$('.btn_end').removeClass('hide');
 			   		start_rozette();
 			   	}
 			}
@@ -237,7 +241,7 @@ jQuery(document).ready(function($){ $("a[rel='colorBox5065']").colorbox({}); });
 				document.getElementById("bd_roz").src = "http://localhost:4242/img/image-bd/bd-"+index+".png";
 			   	index++;
 			   	if (index < 21) {
-			   		setTimeout(debutbdFunc, 200);
+			   		setTimeout(debutbdFunc, 120);
 			   	}
 			}
 		}
@@ -290,7 +294,7 @@ jQuery(document).ready(function($){ $("a[rel='colorBox5065']").colorbox({}); });
 				document.getElementById("post_roz").src = "http://localhost:4242/img/image-postale/logo-"+index+".png";
 			   	index++;
 			   	if (index < 42) {
-			   		setTimeout(debutpostFunc, 200);
+			   		setTimeout(debutpostFunc, 120);
 			   	}
 			}
 		}
@@ -307,33 +311,36 @@ jQuery(document).ready(function($){ $("a[rel='colorBox5065']").colorbox({}); });
 			$('.button_mon').removeClass('hide');
 			$('.button_bd').removeClass('hide');
 		}
-		function debut_post() {
-			$('.cookie_ros').addClass('hide');
+		function debut_cookie() {
 			$('.logo_ros').removeClass('hide');
-			$('.post_ros').removeClass('hide');
+			$('.cookie_2').removeClass('hide');
 			$('.button_post').addClass('hide');
 			$('.button_cookie').addClass('hide');
 			$('.button_mon').addClass('hide');
 			$('.button_bd').addClass('hide');
-			var index = 18;
-		   	$('.post_ros').css({"display":"block"});
-			debutpostFunc();		
-			function debutpostFunc() {
-				document.getElementById("post_roz").src = "http://localhost:4242/img/image-postale/logo-"+index+".png";
+			var index = 1;
+		   	$('.cookie_2').css({"display":"block"});
+			debutcookieFunc();		
+			function debutcookieFunc() {
+				document.getElementById("cookie_1").src = "http://localhost:4242/img/image-cookie/cookie-"+index+".png";
 			   	index++;
-			   	if (index < 42) {
-			   		setTimeout(debutpostFunc, 200);
+			   	if (index < 16) {
+			   		setTimeout(debutcookieFunc, 120);
 			   	}
 			}
 		}
-		function post_encar_see() {
-			$('.post_encar').removeClass('hide');
+		function end() {
+			$('.button_post').addClass('hide');
+			$('.button_cookie').addClass('hide');
+			$('.button_mon').addClass('hide');
+			$('.button_bd').addClass('hide');
+			$('.btn_end').addClass('hide');
+			$('.btn_begin').removeClass('hide');
 		}
-		function fin_post() {
+		function fin_cookie() {
 			$('.logo_ros').addClass('hide');
 			$('.cookie_ros').removeClass('hide');
-			$('.post_encar').addClass('hide');
-			$('#post_roz').addClass('hide');
+			$('#cookie_1').addClass('hide');
 			$('.button_post').removeClass('hide');
 			$('.button_cookie').removeClass('hide');
 			$('.button_mon').removeClass('hide');
@@ -367,21 +374,24 @@ jQuery(document).ready(function($){ $("a[rel='colorBox5065']").colorbox({}); });
 			<img id="mon_roz" src="http://localhost:4242/img/image-monsieur/mr-1.png" onclick="fin_mon()">
 		</div>
 	</div>
-	<div class="cookie_ros hide">
+	<div class="cookie_2 hide">
 		<div class="cookie_good">
-			<img id="cookie_roz" src="http://localhost:4242/img/image-cookie/cookie-1.png">
-		</div>
-		<div class="cookie_encar hide">
-			<img id="cookie_encar" src="http://localhost:4242/img/image-cookie/cookie-15.png"/>
+			<img id="cookie_1" src="http://localhost:4242/img/image-cookie/cookie-1.png" onclick="fin_cookie()">
 		</div>
 	</div>
-	<div class="cookie_ros hide">
+	<div class="cookie_ros">
 		<div class="cookie">
 			<img id="cookie_roz" src="http://localhost:4242/img/cookie.jpg">
 			<p>Cookie</p>
 		</div>
 	</div>
+	<div class="rech_ros">
+		<div class="rech">
+			<img id="rech_roz" src="http://localhost:4242/img/recherche.png">
+		</div>
+	</div>
 	<div class="btn_begin" onclick="debutrozette()"></div>
+	<div class="btn_end hide" onclick="end()"></div>
 	<div class="body-wrapper">
 	<div id="sb-site">
 	<!-- header html 5 -->
@@ -390,7 +400,7 @@ jQuery(document).ready(function($){ $("a[rel='colorBox5065']").colorbox({}); });
 			<div class="logo"><a href="/index.php"><img src="/images/site/voyageurs_header.png" alt="logo voyageurs du code" border="0"/></a></div>
 			<div onclick="debut_post()" id="button1" class="button_post hide">
 			</div>
-			<div onclick="cookie_go()" id="button1" class="button_cookie hide">
+			<div onclick="debut_cookie()" id="button1" class="button_cookie hide">
 			</div>
 			<div class="headercontent pull-right">
 				<div class="">
