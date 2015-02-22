@@ -61,4 +61,15 @@ h1{
 	z-index: 20;
 	border-radius: 100%;
 	background-color: red;
+	width: 20px;
+	height: 20px;
+}
+
+.button_post {
+	padding-top:8px;
+}
+
+
+.opacity_roz {
+	background-color: rgba(255,255,255,0.7);
 }
