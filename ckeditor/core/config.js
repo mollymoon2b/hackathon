@@ -247,7 +247,7 @@ CKEDITOR.config = {
 	 *
 	 * @cfg {Number/String}
 	 */
-	height: 200,
+	height: 550,
 
 	/**
 	 * Comma-separated list of plugins to be used in an editor instance. Note that
@@ -324,7 +324,7 @@ CKEDITOR.config = {
 	 *
 	 * @cfg {String/Number}
 	 */
-	width: '62%',
+	width: '50%',
 
 	/**
 	 * The base Z-index for floating dialog windows and popups.
